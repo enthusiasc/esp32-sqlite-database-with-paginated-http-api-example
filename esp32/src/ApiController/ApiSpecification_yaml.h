@@ -5,11 +5,6 @@ info:
   description: >
      API Documentation of hardware interface.
   version: 1.0.0
-  contact:
-    email: enthusiasc@protonmail.ch
-  license:
-    name: GNU General Public License v3.0
-    url: https://github.com/enthusiasc/esp32-sqlite-database-with-paginated-http-api-example
 basePath: /
 paths:
   /api/sensors:
