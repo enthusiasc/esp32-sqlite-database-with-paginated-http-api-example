@@ -78,7 +78,8 @@ sys	0m0.010s
 ```
 A json object is returned from the webserver that is running on the esp32. It contains information about which sensor data was requested along with an array that contains all of the requested values.
 The **limit** parameter must not exceed 8192 because of the limited resources available on the microcontroller. Use the **fromTimestamp**, **toTimestamp**, and **offset** parameters to query large datasets.
-This was tested with 20 sensors, each sensor having **5.000.000** rows of data available. This makes a total of **100.000.000** rows at **2,81GB**. Each individual row is accessible within about 1-3 seconds during my performance tests.
+
+This example was tested with 20 sensors, each sensor having **5.000.000** rows of data available. This makes a total of **100.000.000** database rows (or ~9,5 years of data at 1 meassurement/sensor/minute) at **2,81GB**. Each individual row is accessible within about 1-3 seconds during my performance tests.
 
 ## Get Started
  - Adjust wifi credentials in class [WirelessConnectionManager](esp32/src/WirelessConnectionManager/WirelessConnectionManager.cpp).
