@@ -1,0 +1,18 @@
+@startuml
+participant "User:\nMobile App" as App
+participant "ESP32:\nIoT Device" as ESP
+participant "Software Module:\nSensorDataStreamer" as Streamer
+participant "Software Module:\nPersistenceManager" as PersistenceManager
+participant "Hardware Module:\nSD Card" as SD
+
+App -> ESP: "HTTP GET /api/sensors\n?sensorName=temperature\n&fromTimestamp=0\n&toTimestamp=2000000\n&offset=0\n&limit=1440"
+ESP -> Streamer: request historic sensor data stream
+Streamer -> PersistenceManager: query sqlite database
+PersistenceManager -> SD: read bytes (SPI bus)
+SD -> PersistenceManager: return bytes (SPI bus)
+PersistenceManager -> Streamer: return database result
+
+Streamer -> ESP: begin chunked response
+ESP -> App: read chunked json response
+@enduml
+
