@@ -4,8 +4,8 @@
 The wifi-enabled [esp32 microcontroller](https://www.espressif.com/en/products/modules/esp32) opened up great possibilities for embedded systems, especially in the context of IoT applications. The integration of sqlite enhances the very limited storage capabilities of embedded systems. Some projects may require a long term offline storage for historic sensor data, advanced data queries or simply some sort of persistent storage that can hold data across reboots of the IoT device. The purpose of this repository is to demonstrate how to utilize [sqlite](https://github.com/siara-cc/esp32_arduino_sqlite3_lib) and an [asynchronous webserver](https://github.com/me-no-dev/ESPAsyncWebServer) to overcome the storage limitations in embedded IoT projects.
 
 ## Hardware requirements
-This project is designed to work with esp32 microcontroller. It was not yet tested for esp8266. A micro sd card is connected to the microcontroller via the SPI bus, although this is not a hard requirement.
-An SQLite database could theoretically live on the internal storage of the microcontroller (e.g SPIFFS partition). This works fine for small datasets. If you need to store large amounts of data a micro sd card is the perfect choice.
+This project is designed to work with esp32 microcontroller. A micro sd card is connected to the microcontroller via the SPI bus, although this is not a hard requirement.
+An SQLite database could theoretically live on the internal storage of the microcontroller (e.g SPIFFS partition). This works fine for small datasets. If you need to store large amounts of data, a micro sd card is the perfect choice.
 
 ## Storing data
 The [PersistenceManager](esp32/src/PersistenceManager/PersistenceManager.cpp) class is designed to insert sensor data into an sqlite database every minute.
